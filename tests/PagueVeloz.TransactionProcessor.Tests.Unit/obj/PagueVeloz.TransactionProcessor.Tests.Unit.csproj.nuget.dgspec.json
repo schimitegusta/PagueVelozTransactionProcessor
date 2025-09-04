@@ -1,0 +1,423 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\tests\\PagueVeloz.TransactionProcessor.Tests.Unit\\PagueVeloz.TransactionProcessor.Tests.Unit.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.API\\PagueVeloz.TransactionProcessor.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.API\\PagueVeloz.TransactionProcessor.API.csproj",
+        "projectName": "PagueVeloz.TransactionProcessor.API",
+        "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.API\\PagueVeloz.TransactionProcessor.API.csproj",
+        "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Application\\PagueVeloz.TransactionProcessor.Application.csproj": {
+                "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Application\\PagueVeloz.TransactionProcessor.Application.csproj"
+              },
+              "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Infrastructure\\PagueVeloz.TransactionProcessor.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Infrastructure\\PagueVeloz.TransactionProcessor.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.22.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Application\\PagueVeloz.TransactionProcessor.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Application\\PagueVeloz.TransactionProcessor.Application.csproj",
+        "projectName": "PagueVeloz.TransactionProcessor.Application",
+        "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Application\\PagueVeloz.TransactionProcessor.Application.csproj",
+        "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Domain\\PagueVeloz.TransactionProcessor.Domain.csproj": {
+                "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Domain\\PagueVeloz.TransactionProcessor.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Domain\\PagueVeloz.TransactionProcessor.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Domain\\PagueVeloz.TransactionProcessor.Domain.csproj",
+        "projectName": "PagueVeloz.TransactionProcessor.Domain",
+        "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Domain\\PagueVeloz.TransactionProcessor.Domain.csproj",
+        "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Infrastructure\\PagueVeloz.TransactionProcessor.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Infrastructure\\PagueVeloz.TransactionProcessor.Infrastructure.csproj",
+        "projectName": "PagueVeloz.TransactionProcessor.Infrastructure",
+        "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Infrastructure\\PagueVeloz.TransactionProcessor.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Application\\PagueVeloz.TransactionProcessor.Application.csproj": {
+                "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Application\\PagueVeloz.TransactionProcessor.Application.csproj"
+              },
+              "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Domain\\PagueVeloz.TransactionProcessor.Domain.csproj": {
+                "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Domain\\PagueVeloz.TransactionProcessor.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\tests\\PagueVeloz.TransactionProcessor.Tests.Unit\\PagueVeloz.TransactionProcessor.Tests.Unit.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\tests\\PagueVeloz.TransactionProcessor.Tests.Unit\\PagueVeloz.TransactionProcessor.Tests.Unit.csproj",
+        "projectName": "PagueVeloz.TransactionProcessor.Tests.Unit",
+        "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\tests\\PagueVeloz.TransactionProcessor.Tests.Unit\\PagueVeloz.TransactionProcessor.Tests.Unit.csproj",
+        "packagesPath": "C:\\Users\\Gustavo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\tests\\PagueVeloz.TransactionProcessor.Tests.Unit\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.API\\PagueVeloz.TransactionProcessor.API.csproj": {
+                "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.API\\PagueVeloz.TransactionProcessor.API.csproj"
+              },
+              "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Application\\PagueVeloz.TransactionProcessor.Application.csproj": {
+                "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Application\\PagueVeloz.TransactionProcessor.Application.csproj"
+              },
+              "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Domain\\PagueVeloz.TransactionProcessor.Domain.csproj": {
+                "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Domain\\PagueVeloz.TransactionProcessor.Domain.csproj"
+              },
+              "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Infrastructure\\PagueVeloz.TransactionProcessor.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Gustavo\\source\\repos\\PagueVeloz.TransactionProcessor\\src\\PagueVeloz.TransactionProcessor.Infrastructure\\PagueVeloz.TransactionProcessor.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.14.1, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.3, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
