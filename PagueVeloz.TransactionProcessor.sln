@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagueVeloz.TransactionProcessor.Domain", "src\PagueVeloz.TransactionProcessor.Domain\PagueVeloz.TransactionProcessor.Domain.csproj", "{16C10A26-5252-4DFE-BD24-0ACAC6FAF60C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagueVeloz.TransactionProcessor.Application", "src\PagueVeloz.TransactionProcessor.Application\PagueVeloz.TransactionProcessor.Application.csproj", "{745F545D-A763-4547-9F5C-9E2C8A23A4FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagueVeloz.TransactionProcessor.Infrastructure", "src\PagueVeloz.TransactionProcessor.Infrastructure\PagueVeloz.TransactionProcessor.Infrastructure.csproj", "{87C5260D-6E6F-4CE9-BB0F-BB3593A19226}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagueVeloz.TransactionProcessor.API", "src\PagueVeloz.TransactionProcessor.API\PagueVeloz.TransactionProcessor.API.csproj", "{E5F24BB4-7A0B-43A9-AEF7-A3D332D4EA01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagueVeloz.TransactionProcessor.Tests.Unit", "tests\PagueVeloz.TransactionProcessor.Tests.Unit\PagueVeloz.TransactionProcessor.Tests.Unit.csproj", "{3BCAECD8-D1C0-4F75-B782-F60BCF691C0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagueVeloz.TransactionProcessor.Tests.Integration", "tests\PagueVeloz.TransactionProcessor.Tests.Integration\PagueVeloz.TransactionProcessor.Tests.Integration.csproj", "{2698C39B-F9D4-45D4-B996-54AA2AEBFE55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16C10A26-5252-4DFE-BD24-0ACAC6FAF60C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16C10A26-5252-4DFE-BD24-0ACAC6FAF60C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16C10A26-5252-4DFE-BD24-0ACAC6FAF60C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16C10A26-5252-4DFE-BD24-0ACAC6FAF60C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745F545D-A763-4547-9F5C-9E2C8A23A4FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745F545D-A763-4547-9F5C-9E2C8A23A4FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745F545D-A763-4547-9F5C-9E2C8A23A4FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745F545D-A763-4547-9F5C-9E2C8A23A4FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87C5260D-6E6F-4CE9-BB0F-BB3593A19226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87C5260D-6E6F-4CE9-BB0F-BB3593A19226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87C5260D-6E6F-4CE9-BB0F-BB3593A19226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87C5260D-6E6F-4CE9-BB0F-BB3593A19226}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5F24BB4-7A0B-43A9-AEF7-A3D332D4EA01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F24BB4-7A0B-43A9-AEF7-A3D332D4EA01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F24BB4-7A0B-43A9-AEF7-A3D332D4EA01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F24BB4-7A0B-43A9-AEF7-A3D332D4EA01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BCAECD8-D1C0-4F75-B782-F60BCF691C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BCAECD8-D1C0-4F75-B782-F60BCF691C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BCAECD8-D1C0-4F75-B782-F60BCF691C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BCAECD8-D1C0-4F75-B782-F60BCF691C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2698C39B-F9D4-45D4-B996-54AA2AEBFE55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2698C39B-F9D4-45D4-B996-54AA2AEBFE55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2698C39B-F9D4-45D4-B996-54AA2AEBFE55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2698C39B-F9D4-45D4-B996-54AA2AEBFE55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B92A49E7-EED4-4875-A5DD-A2FC69E7E974}
+	EndGlobalSection
+EndGlobal

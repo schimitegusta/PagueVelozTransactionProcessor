@@ -1,0 +1,11 @@
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Domain\bin\Debug\net9.0\PagueVeloz.TransactionProcessor.Domain.deps.json
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Domain\bin\Debug\net9.0\PagueVeloz.TransactionProcessor.Domain.dll
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Domain\bin\Debug\net9.0\PagueVeloz.TransactionProcessor.Domain.pdb
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Domain\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Domain\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Domain.AssemblyInfoInputs.cache
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Domain\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Domain.AssemblyInfo.cs
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Domain\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Domain\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Domain.dll
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Domain\obj\Debug\net9.0\refint\PagueVeloz.TransactionProcessor.Domain.dll
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Domain\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Domain.pdb
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Domain\obj\Debug\net9.0\ref\PagueVeloz.TransactionProcessor.Domain.dll
