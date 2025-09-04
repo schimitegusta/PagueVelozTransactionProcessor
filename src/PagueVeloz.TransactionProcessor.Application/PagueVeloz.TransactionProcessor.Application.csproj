@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="MediatR" Version="13.0.0" />
+    <PackageReference Include="Polly" Version="8.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PagueVeloz.TransactionProcessor.Domain\PagueVeloz.TransactionProcessor.Domain.csproj" />
   </ItemGroup>
 
