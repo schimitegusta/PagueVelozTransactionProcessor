@@ -167,3 +167,4 @@ C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.Tra
 C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.API\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.API.sourcelink.json

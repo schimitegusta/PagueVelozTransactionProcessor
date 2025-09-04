@@ -1,4 +1,6 @@
-﻿namespace PagueVeloz.TransactionProcessor.Domain.Entities
+﻿using PagueVeloz.TransactionProcessor.Domain.Events;
+
+namespace PagueVeloz.TransactionProcessor.Domain.Entities
 {
     public class Client : BaseEntity
     {

@@ -160,3 +160,4 @@ C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\tests\PagueVeloz.T
 C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\tests\PagueVeloz.TransactionProcessor.Tests.Integration\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Tests.Integration.pdb
 C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\tests\PagueVeloz.TransactionProcessor.Tests.Integration\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Tests.Integration.genruntimeconfig.cache
 C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\tests\PagueVeloz.TransactionProcessor.Tests.Integration\obj\Debug\net9.0\ref\PagueVeloz.TransactionProcessor.Tests.Integration.dll
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\tests\PagueVeloz.TransactionProcessor.Tests.Integration\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Tests.Integration.sourcelink.json

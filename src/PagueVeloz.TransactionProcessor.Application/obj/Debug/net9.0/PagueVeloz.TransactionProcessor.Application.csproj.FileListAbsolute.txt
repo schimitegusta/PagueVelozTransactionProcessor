@@ -13,3 +13,4 @@ C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.Tra
 C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Application\obj\Debug\net9.0\refint\PagueVeloz.TransactionProcessor.Application.dll
 C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Application\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Application.pdb
 C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Application\obj\Debug\net9.0\ref\PagueVeloz.TransactionProcessor.Application.dll
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Application\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Application.sourcelink.json

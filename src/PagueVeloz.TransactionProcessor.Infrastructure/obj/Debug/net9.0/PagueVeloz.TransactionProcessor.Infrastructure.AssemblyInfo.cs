@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PagueVeloz.TransactionProcessor.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28870ec2a4fe990552d40da4cf42163ec7ea0ea1")]
 [assembly: System.Reflection.AssemblyProductAttribute("PagueVeloz.TransactionProcessor.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PagueVeloz.TransactionProcessor.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -17,3 +17,4 @@ C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.Tra
 C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Infrastructure\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Infrastructure.pdb
 C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Infrastructure\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Infrastructure.genruntimeconfig.cache
 C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Infrastructure\obj\Debug\net9.0\ref\PagueVeloz.TransactionProcessor.Infrastructure.dll
+C:\Users\Gustavo\source\repos\PagueVeloz.TransactionProcessor\src\PagueVeloz.TransactionProcessor.Infrastructure\obj\Debug\net9.0\PagueVeloz.TransactionProcessor.Infrastructure.sourcelink.json
