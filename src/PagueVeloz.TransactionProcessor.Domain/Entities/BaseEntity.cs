@@ -1,4 +1,5 @@
 ﻿using PagueVeloz.TransactionProcessor.Domain.Events;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PagueVeloz.TransactionProcessor.Domain.Entities
 {
@@ -9,6 +10,7 @@ namespace PagueVeloz.TransactionProcessor.Domain.Entities
         public DateTime? UpdatedAt { get; protected set; }
         public byte[] RowVersion { get; set; } = Array.Empty<byte>();
 
+        [NotMapped]
         private readonly List<IDomainEvent> _domainEvents = new();
         public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 

@@ -36,7 +36,7 @@ namespace PagueVeloz.TransactionProcessor.Application.Handlers
                     onRetry: (exception, timeSpan, retryCount, context) =>
                     {
                         _logger.LogWarning(
-                            "Retry {RetryCount} after {TimeSpan}s due to {Exception}",
+                            "Tentar novamente {RetryCount} após {TimeSpan}s devido a {Exception}",
                             retryCount, timeSpan.TotalSeconds, exception.Message);
                     });
         }
