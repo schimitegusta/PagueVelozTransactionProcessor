@@ -1,6 +1,7 @@
 ﻿using PagueVeloz.TransactionProcessor.Domain.Enums;
-using PagueVeloz.TransactionProcessor.Domain.ValueObjects;
 using PagueVeloz.TransactionProcessor.Domain.Events;
+using PagueVeloz.TransactionProcessor.Domain.ValueObjects;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PagueVeloz.TransactionProcessor.Domain.Entities
 {
@@ -16,8 +17,22 @@ namespace PagueVeloz.TransactionProcessor.Domain.Entities
         private readonly List<Transaction> _transactions = new();
         public IReadOnlyCollection<Transaction> Transactions => _transactions.AsReadOnly();
 
-        public decimal AvailableBalance => Balance - ReservedBalance;
-        public decimal TotalAvailable => AvailableBalance + CreditLimit;
+        private decimal _availableBalance;
+        private decimal _totalAvailable;
+
+        [NotMapped]
+        public decimal AvailableBalance
+        {
+            get => Balance - ReservedBalance;
+            private set => _availableBalance = value;
+        }
+
+        [NotMapped]
+        public decimal TotalAvailable
+        {
+            get => AvailableBalance + CreditLimit;
+            private set => _totalAvailable = value;
+        }
 
         protected Account() { }
 
