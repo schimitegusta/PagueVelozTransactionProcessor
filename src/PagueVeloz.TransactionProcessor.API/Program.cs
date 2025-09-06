@@ -17,7 +17,6 @@ using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configurar Serilog
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
     .Enrich.FromLogContext()
@@ -27,11 +26,9 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-// Add services
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// Configurar Swagger
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -46,7 +43,6 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 
-    // Incluir comentários XML
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     if (File.Exists(xmlPath))
@@ -55,7 +51,6 @@ builder.Services.AddSwaggerGen(c =>
     }
 });
 
-// Configurar Entity Framework
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(
@@ -72,25 +67,20 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     }
 });
 
-// Registrar Unit of Work
 builder.Services.AddScoped<IUnitOfWork>(provider =>
     provider.GetRequiredService<ApplicationDbContext>());
 
-// Configurar MediatR
 builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssembly(typeof(ProcessTransactionHandler).Assembly);
 });
 
-// Configurar AutoMapper
 builder.Services.AddAutoMapper(typeof(ProcessTransactionHandler).Assembly);
 
-// Configurar FluentValidation
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<TransactionValidator>();
 
-// Configurar MassTransit (Message Bus)
 builder.Services.AddMassTransit(x =>
 {
     x.SetKebabCaseEndpointNameFormatter();
@@ -101,15 +91,12 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
-// Registrar serviços customizados
 builder.Services.AddScoped<IEventPublisher, EventPublisher>();
 builder.Services.AddSingleton<TransactionMetrics>();
 
-// Configurar Health Checks
 builder.Services.AddHealthChecks()
     .AddDbContextCheck<ApplicationDbContext>("database");
 
-// Configurar CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -121,13 +108,10 @@ builder.Services.AddCors(options =>
         });
 });
 
-// Configurar métricas
 builder.Services.AddMetrics();
 
-// Configurar cache
 builder.Services.AddMemoryCache();
 
-// Configurar rate limiting
 builder.Services.AddRateLimiter(options =>
 {
     options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(
@@ -143,7 +127,6 @@ builder.Services.AddRateLimiter(options =>
 
 var app = builder.Build();
 
-// Aplicar migrations automaticamente (apenas desenvolvimento)
 if (app.Environment.IsDevelopment())
 {
     using (var scope = app.Services.CreateScope())
@@ -161,7 +144,6 @@ if (app.Environment.IsDevelopment())
     }
 }
 
-// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -176,7 +158,6 @@ app.UseHttpsRedirection();
 app.UseSerilogRequestLogging();
 app.UseCors("AllowAll");
 
-// Middleware customizado
 app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseMiddleware<RequestLoggingMiddleware>();
 
@@ -184,10 +165,8 @@ app.UseRateLimiter();
 app.UseAuthorization();
 app.MapControllers();
 
-// Health checks
 app.MapHealthChecks("/health");
 
-// Endpoint de métricas
 app.MapGet("/metrics", () => Results.Ok("Metrics endpoint"));
 
 Log.Information("Starting PagueVeloz Transaction API");

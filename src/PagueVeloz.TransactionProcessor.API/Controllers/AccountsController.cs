@@ -55,7 +55,7 @@ namespace PagueVeloz.TransactionProcessor.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error creating account");
+                _logger.LogError(ex, "Erro ao criar conta");
                 return BadRequest(new { error = ex.Message });
             }
         }
@@ -72,7 +72,7 @@ namespace PagueVeloz.TransactionProcessor.API.Controllers
 
             if (account == null)
             {
-                return NotFound(new { error = $"Account {id} not found" });
+                return NotFound(new { error = $"Conta {id} não encontrada" });
             }
 
             return Ok(new AccountResponse
