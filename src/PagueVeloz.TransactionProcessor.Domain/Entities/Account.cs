@@ -91,7 +91,7 @@ namespace PagueVeloz.TransactionProcessor.Domain.Entities
                     Balance,
                     ReservedBalance,
                     AvailableBalance,
-                    "Fundos insuficientes"
+                    "Exedeu limite de crédito"
                 );
 
                 _transactions.Add(failedTransaction);
