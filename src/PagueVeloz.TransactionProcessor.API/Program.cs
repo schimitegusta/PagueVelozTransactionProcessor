@@ -171,3 +171,5 @@ app.MapGet("/metrics", () => Results.Ok("Metrics endpoint"));
 
 Log.Information("Starting PagueVeloz Transaction API");
 app.Run();
+
+public partial class Program { }

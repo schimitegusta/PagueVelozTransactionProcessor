@@ -42,7 +42,10 @@ namespace PagueVeloz.TransactionProcessor.API.Controllers
 
                 if (!clientExists)
                 {
-                    throw new ArgumentException($"Cliente {request.ClientId} não encontrado!");
+                    var client = new Client($"Client-{clientId}", $"DOC-{clientId}".Substring(0, 8), $"client{clientId}@test.com");
+                    request.ClientId = client.Id.ToString();
+                    await _unitOfWork.Clients.AddAsync(client);
+                    await _unitOfWork.SaveChangesAsync();
                 }
 
                 var command = CreateAccountCommand.FromRequest(request);

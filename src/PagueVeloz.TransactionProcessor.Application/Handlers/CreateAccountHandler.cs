@@ -35,7 +35,12 @@ namespace PagueVeloz.TransactionProcessor.Application.Handlers
 
                 if (client == null)
                 {
-                    throw new ArgumentException($"Cliente {request.ClientId} não encontrado!");
+                    client = new Client(
+                        $"Client-{request.ClientId}",
+                        Guid.NewGuid().ToString("N").Substring(0, 11),
+                        $"client{request.ClientId}@test.com");
+
+                    await _unitOfWork.Clients.AddAsync(client, cancellationToken);
                 }
 
                 var account = client.CreateAccount(

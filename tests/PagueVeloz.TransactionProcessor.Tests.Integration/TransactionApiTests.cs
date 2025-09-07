@@ -1,56 +1,82 @@
 ﻿using FluentAssertions;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging;
 using PagueVeloz.TransactionProcessor.Application.DTOs;
 using PagueVeloz.TransactionProcessor.Domain.Entities;
+using PagueVeloz.TransactionProcessor.Domain.Interfaces;
 using PagueVeloz.TransactionProcessor.Infrastructure.Data;
 using System.Net;
 using System.Net.Http.Json;
 
 namespace PagueVeloz.TransactionProcessor.Tests.Integration
 {
-    public class TransactionApiTests : IClassFixture<WebApplicationFactory<Program>>
+    public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     {
-        private readonly WebApplicationFactory<Program> _factory;
-        private readonly HttpClient _client;
-
-        public TransactionApiTests(WebApplicationFactory<Program> factory)
+        protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
-            _factory = factory.WithWebHostBuilder(builder =>
+            builder.ConfigureServices(services =>
             {
-                builder.ConfigureServices(services =>
+                var toRemove = services.Where(descriptor =>
+                    descriptor.ServiceType.Namespace?.Contains("Microsoft.EntityFrameworkCore") == true ||
+                    descriptor.ServiceType == typeof(ApplicationDbContext) ||
+                    (descriptor.ServiceType.IsGenericType &&
+                     descriptor.ServiceType.GetGenericTypeDefinition() == typeof(DbContextOptions<>)) ||
+                    descriptor.ServiceType == typeof(DbContextOptions) ||
+                    descriptor.ImplementationType?.Namespace?.Contains("Microsoft.EntityFrameworkCore") == true
+                ).ToArray();
+
+                foreach (var descriptor in toRemove)
                 {
-                    // Remover o DbContext de produção
-                    var descriptor = services.SingleOrDefault(
-                        d => d.ServiceType == typeof(DbContextOptions<ApplicationDbContext>));
+                    services.Remove(descriptor);
+                }
 
-                    if (descriptor != null)
-                    {
-                        services.Remove(descriptor);
-                    }
-
-                    // Adicionar DbContext em memória para testes
-                    services.AddDbContext<ApplicationDbContext>(options =>
-                    {
-                        options.UseInMemoryDatabase("TestDb");
-                    });
-
-                    // Garantir que o banco seja criado
-                    var sp = services.BuildServiceProvider();
-                    using var scope = sp.CreateScope();
-                    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                    dbContext.Database.EnsureCreated();
-                    SeedTestData(dbContext);
+                services.AddDbContext<ApplicationDbContext>(options =>
+                {
+                    options.UseInMemoryDatabase($"TestDatabase")
+                    .ConfigureWarnings(w => w.Ignore(InMemoryEventId.TransactionIgnoredWarning))
+                    .EnableSensitiveDataLogging()
+                    .EnableDetailedErrors();
                 });
             });
 
+            builder.UseEnvironment("Testing");
+        }
+    }
+
+    public class TransactionApiTests : IClassFixture<CustomWebApplicationFactory>
+    {
+        private readonly CustomWebApplicationFactory _factory;
+        private readonly HttpClient _client;
+
+        public TransactionApiTests(CustomWebApplicationFactory factory)
+        {
+            _factory = factory;
             _client = _factory.CreateClient();
+            InitializeDatabase();
         }
 
-        private void SeedTestData(ApplicationDbContext context)
+        private void InitializeDatabase()
         {
+            using var scope = _factory.Services.CreateScope();
+            var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+            context.Database.EnsureCreated();
+            SeedTestData(context);
+        }
+
+        private static void SeedTestData(ApplicationDbContext context)
+        {
+            if (context.ClientSet.Any())
+            {
+                context.ClientSet.RemoveRange(context.ClientSet);
+                context.SaveChanges();
+            }
+
             var client = new Client("Test Client", "12345678900", "test@test.com");
             var account = client.CreateAccount(1000, 500, "BRL");
 
@@ -68,7 +94,7 @@ namespace PagueVeloz.TransactionProcessor.Tests.Integration
             {
                 Operation = "credit",
                 AccountId = accountId.ToString(),
-                Amount = 10000, // R$ 100,00
+                Amount = 10000,
                 Currency = "BRL",
                 ReferenceId = $"TEST-{Guid.NewGuid()}"
             };
@@ -112,24 +138,24 @@ namespace PagueVeloz.TransactionProcessor.Tests.Integration
             var accountId = await CreateTestAccount();
 
             var requests = new List<TransactionRequest>
-        {
-            new()
             {
-                Operation = "credit",
-                AccountId = accountId.ToString(),
-                Amount = 5000,
-                Currency = "BRL",
-                ReferenceId = $"BATCH-1-{Guid.NewGuid()}"
-            },
-            new()
-            {
-                Operation = "debit",
-                AccountId = accountId.ToString(),
-                Amount = 2000,
-                Currency = "BRL",
-                ReferenceId = $"BATCH-2-{Guid.NewGuid()}"
-            }
-        };
+                new()
+                {
+                    Operation = "credit",
+                    AccountId = accountId.ToString(),
+                    Amount = 5000,
+                    Currency = "BRL",
+                    ReferenceId = $"BATCH-1-{Guid.NewGuid()}"
+                },
+                new()
+                {
+                    Operation = "debit",
+                    AccountId = accountId.ToString(),
+                    Amount = 2000,
+                    Currency = "BRL",
+                    ReferenceId = $"BATCH-2-{Guid.NewGuid()}"
+                }
+            };
 
             // Act
             var response = await _client.PostAsJsonAsync("/api/transactions/batch", requests);
@@ -149,16 +175,28 @@ namespace PagueVeloz.TransactionProcessor.Tests.Integration
             var createAccountRequest = new CreateAccountRequest
             {
                 ClientId = Guid.NewGuid().ToString(),
-                InitialBalance = 100000, // R$ 1.000,00
-                CreditLimit = 50000, // R$ 500,00
+                InitialBalance = 100000,
+                CreditLimit = 50000,
                 Currency = "BRL"
             };
 
             var response = await _client.PostAsJsonAsync("/api/accounts", createAccountRequest);
-            response.EnsureSuccessStatusCode();
 
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                throw new Exception($"Criação de conta falhou: {response.StatusCode} - {errorContent}");
+            }
+
+            response.EnsureSuccessStatusCode();
             var account = await response.Content.ReadFromJsonAsync<AccountResponse>();
             return Guid.Parse(account!.AccountId);
+        }
+
+        public void Dispose()
+        {
+            _client?.Dispose();
+            _factory?.Dispose();
         }
     }
 }

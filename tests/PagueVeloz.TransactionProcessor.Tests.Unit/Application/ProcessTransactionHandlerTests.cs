@@ -65,7 +65,7 @@ namespace PagueVeloz.TransactionProcessor.Tests.Unit.Application
 
             // Assert
             result.Status.Should().Be("success");
-            result.Balance.Should().Be(10000); // 100 * 100 (convertido para centavos)
+            result.Balance.Should().Be(10000);
 
             _unitOfWorkMock.Verify(x => x.Accounts.UpdateAsync(It.IsAny<Account>(), default), Times.Once);
             _unitOfWorkMock.Verify(x => x.SaveEntitiesAsync(default), Times.Once);

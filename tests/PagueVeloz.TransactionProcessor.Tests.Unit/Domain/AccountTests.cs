@@ -37,7 +37,7 @@ namespace PagueVeloz.TransactionProcessor.Tests.Unit.Domain
             // Assert
             account.Balance.Should().Be(100);
             transaction.Status.Should().Be(TransactionStatus.Failed);
-            transaction.ErrorMessage.Should().Be("Insufficient funds");
+            transaction.ErrorMessage.Should().Be("Exedeu limite de crédito");
         }
 
         [Fact]
