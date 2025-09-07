@@ -29,6 +29,13 @@ namespace PagueVeloz.TransactionProcessor.Infrastructure.Repositories
 
         public async Task<Account?> GetByIdForUpdateAsync(Guid id, CancellationToken cancellationToken = default)
         {
+            if (_context.Database.IsInMemory() || _context.Database.IsSqlite())
+            {
+                return await _context.AccountSet
+                    .Include(a => a.Transactions)
+                    .FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
+            }
+
             var sql = @"
             SELECT * FROM Accounts WITH (UPDLOCK, ROWLOCK) 
             WHERE Id = {0}";

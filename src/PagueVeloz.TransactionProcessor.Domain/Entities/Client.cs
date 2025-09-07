@@ -1,4 +1,5 @@
 ﻿using PagueVeloz.TransactionProcessor.Domain.Events;
+using System.Reflection.Metadata;
 
 namespace PagueVeloz.TransactionProcessor.Domain.Entities
 {

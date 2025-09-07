@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore.Storage;
 using PagueVeloz.TransactionProcessor.Domain.Entities;
 using PagueVeloz.TransactionProcessor.Domain.Interfaces;
 using PagueVeloz.TransactionProcessor.Infrastructure.Data.Configurations;
-using System.Data;
 using PagueVeloz.TransactionProcessor.Infrastructure.Repositories;
+using System.Data;
 
 namespace PagueVeloz.TransactionProcessor.Infrastructure.Data
 {

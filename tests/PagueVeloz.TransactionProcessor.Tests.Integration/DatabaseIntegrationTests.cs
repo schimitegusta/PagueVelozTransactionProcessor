@@ -1,8 +1,10 @@
 ﻿using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using PagueVeloz.TransactionProcessor.Domain.Entities;
 using PagueVeloz.TransactionProcessor.Infrastructure.Data;
 using PagueVeloz.TransactionProcessor.Infrastructure.Repositories;
+using Microsoft.Data.Sqlite;
 
 namespace PagueVeloz.TransactionProcessor.Tests.Integration
 {
@@ -11,6 +13,7 @@ namespace PagueVeloz.TransactionProcessor.Tests.Integration
         private readonly ApplicationDbContext _context;
         private readonly AccountRepository _accountRepository;
         private readonly TransactionRepository _transactionRepository;
+        private static readonly InMemoryDatabaseRoot _databaseRoot = new InMemoryDatabaseRoot();
 
         public DatabaseIntegrationTests()
         {
@@ -46,39 +49,41 @@ namespace PagueVeloz.TransactionProcessor.Tests.Integration
         public async Task Should_Handle_Concurrent_Updates_With_RowVersion()
         {
             // Arrange
-            var account = new Account(Guid.NewGuid(), 1000, 0, "BRL");
-            await _accountRepository.AddAsync(account);
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+                .UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=TestDb;Trusted_Connection=True;")
+                .Options;
+
+            using var _context = new ApplicationDbContext(options);
+            await _context.Database.EnsureCreatedAsync();
+
+            string randomStrDoc = Guid.NewGuid().ToString("N").Substring(0, 19);
+            var client = new Client("name", randomStrDoc, "email");
+            await _context.ClientSet.AddAsync(client);
             await _context.SaveChangesAsync();
 
-            // Simular duas atualizações concorrentes
-            var options1 = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseInMemoryDatabase(databaseName: "TestDb_Concurrent1")
-                .Options;
-            var context1 = new ApplicationDbContext(options1);
+            var account = new Account(client.Id, 1000, 0, "BRL");
+            await _context.AccountSet.AddAsync(account);
+            await _context.SaveChangesAsync();
 
-            var options2 = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseInMemoryDatabase(databaseName: "TestDb_Concurrent2")
-                .Options;
-            var context2 = new ApplicationDbContext(options2);
+            using var context1 = new ApplicationDbContext(options);
+            using var context2 = new ApplicationDbContext(options);
 
             var account1 = await context1.AccountSet.FirstAsync(a => a.Id == account.Id);
             var account2 = await context2.AccountSet.FirstAsync(a => a.Id == account.Id);
 
             // Act
-            account1.Credit(new(100, "BRL"), "REF-001");
+            string randomStrRefId1 = Guid.NewGuid().ToString("N").Substring(0, 6);
+            account1.Credit(new(100, "BRL"), randomStrRefId1);
             await context1.SaveChangesAsync();
 
-            account2.Credit(new(200, "BRL"), "REF-002");
+            string randomStrRefId2 = Guid.NewGuid().ToString("N").Substring(0, 6);
+            account2.Credit(new(200, "BRL"), randomStrRefId2);
 
             // Assert
             await Assert.ThrowsAsync<DbUpdateConcurrencyException>(async () =>
             {
                 await context2.SaveChangesAsync();
             });
-
-            // Cleanup
-            context1.Dispose();
-            context2.Dispose();
         }
 
         public void Dispose()
