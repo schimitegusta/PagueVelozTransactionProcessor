@@ -42,7 +42,7 @@ namespace PagueVeloz.TransactionProcessor.API.Controllers
 
                 if (!clientExists)
                 {
-                    var client = new Client($"Client-{clientId}", $"DOC-{clientId}".Substring(0, 8), $"client{clientId}@test.com");
+                    var client = new Client(clientId ,$"Client-{clientId}", $"DOC-{clientId}".Substring(0, 8), $"client{clientId}@test.com");
                     request.ClientId = client.Id.ToString();
                     await _unitOfWork.Clients.AddAsync(client);
                     await _unitOfWork.SaveChangesAsync();

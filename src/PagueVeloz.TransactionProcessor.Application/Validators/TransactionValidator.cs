@@ -19,11 +19,13 @@ namespace PagueVeloz.TransactionProcessor.Application.Validators
                 .Must(BeValidGuid).WithMessage("Formato do ID da conta inválido");
 
             RuleFor(x => x.Amount)
-                .GreaterThan(0).WithMessage("Valor deve ser maior que zero");
+                .GreaterThan(0).WithMessage("Valor deve ser maior que zero")
+                .Unless(x => x.Operation?.ToUpper() == "REVERSAL");
 
             RuleFor(x => x.Currency)
                 .NotEmpty().WithMessage("Moeda é obrigatória")
-                .Must(BeValidCurrency).WithMessage("Moeda inválida");
+                .Must(BeValidCurrency).WithMessage("Moeda inválida")
+                .Unless(x => x.Operation?.ToUpper() == "REVERSAL");
 
             RuleFor(x => x.ReferenceId)
                 .NotEmpty().WithMessage("ID de referência é obrigatório")
