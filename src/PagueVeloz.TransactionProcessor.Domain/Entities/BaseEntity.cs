@@ -20,6 +20,12 @@ namespace PagueVeloz.TransactionProcessor.Domain.Entities
             CreatedAt = DateTime.UtcNow;
         }
 
+        protected BaseEntity(Guid id)
+        {
+            Id = id;
+            CreatedAt = DateTime.UtcNow;
+        }
+
         public void AddDomainEvent(IDomainEvent domainEvent)
         {
             _domainEvents.Add(domainEvent);

@@ -23,6 +23,14 @@ namespace PagueVeloz.TransactionProcessor.Domain.Entities
             IsActive = true;
         }
 
+        public Client(Guid id, string name, string document, string email) : base(id)
+        {
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Document = document ?? throw new ArgumentNullException(nameof(document));
+            Email = email ?? throw new ArgumentNullException(nameof(email));
+            IsActive = true;
+        }
+
         public Account CreateAccount(decimal initialBalance, decimal creditLimit, string currency)
         {
             var account = new Account(Id, initialBalance, creditLimit, currency);
