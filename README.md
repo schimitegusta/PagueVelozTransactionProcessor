@@ -316,7 +316,13 @@ dotnet test
 
 ## Docker
 
-### Dockerfile
+### Docker-Compose
+
+Na raiz do projeto, onde estão os arquivos Dockerfile e docker-compose.yml, abra o terminal e execute:
+```bash
+docker-compose up --build
+```
+Esse comando irá compilar a imagem e iniciar automaticamente tanto o banco de dados quanto a aplicação.
 
 ## Estrutura do Projeto
 
@@ -353,7 +359,7 @@ PagueVeloz.TransactionProcessor/
 │   ├── PagueVeloz.Tests.Unit/      # Testes unitários
 │   └── PagueVeloz.Tests.Integration/ # Testes de integração
 │
-├── docker-compose.yml
+├── docker-compose.yaml
 ├── Dockerfile
 └── README.md
 ```
